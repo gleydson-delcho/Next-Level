@@ -5,10 +5,10 @@
 ## run migrations
 
 ### create migrations
-<p>tyoeorm migration:create</p>
+<p>typeorm migration:create</p>
 
 ### run migrations
-<p>npm run migration:run</p>
+<p>npm run typeorm migration:run</p>
 
 ### revert migrations
 <p>npm run migration:revert</p>
