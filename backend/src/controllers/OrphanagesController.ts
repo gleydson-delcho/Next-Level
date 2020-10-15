@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
-import orphanageView from '../views/orphanages_view';
-import Orphanage from '../models/Orphanage';
 import * as Yup from 'yup';
+import { getRepository } from 'typeorm';
+import Orphanage from '../models/Orphanage';
+import orphanageView from '../views/orphanages_view';
 
 export default {
     async index(req: Request, res:Response) {
@@ -44,7 +44,7 @@ export default {
         const requestImages = req.files as Express.Multer.File[];
         const images = requestImages.map(image => {
             return { path: image.filename }
-        })
+        });
 
         const data = 
             {
@@ -54,7 +54,7 @@ export default {
                 about,
                 instructions,
                 opening_hours,
-                open_on_weekends,
+                open_on_weekends: open_on_weekends === 'true',
                 images,
             }
 
